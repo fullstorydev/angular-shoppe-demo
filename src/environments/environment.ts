@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  localApi: '/assets',
+  remoteApi: 'http://localhost:3000/api',
+  useMockApi: true, // set to false and run https://github.com/fullstorydev/api-shoppe-demo
 };
 
 /*
