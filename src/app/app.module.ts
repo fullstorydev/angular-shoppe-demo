@@ -9,6 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CartComponent, CheckoutComponent, ProductsComponent, ThankYouComponent } from './components';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { CartComponent, CheckoutComponent, ProductsComponent, ThankYouComponent 
     MatIconModule,
     MatToolbarModule,
   ],
-  providers: [],
+  providers: [
+    ProductService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
