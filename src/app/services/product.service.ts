@@ -58,7 +58,7 @@ export class ProductService {
    * @param result the return value that should be passed to the next operator
    */
   private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
+    return (error: Error): Observable<T> => {
       console.error(`${operation} failed: ${error.message}`);
 
       // TODO (van) possibly open a snackbar to inform the user of error
