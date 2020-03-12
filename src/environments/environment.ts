@@ -5,14 +5,14 @@
 /**
  * Define configuration options used by the app:
  * production - whether or not this app is running in production
- * localApi - mock files that contain data (i.e. emulate an API resource locally)
- * remoteApi - the API base URL if hosting the backend demo (https://github.com/fullstorydev/api-shoppe-demo)
+ * localApiRoot - mock files that contain data (i.e. emulate an API resource locally)
+ * remoteApiRoot - the API base URL if hosting the backend demo (https://github.com/fullstorydev/api-shoppe-demo)
  * useMockApi - true to use localApi, false to use the remoteApi
  */
 export const environment = {
   production: false,
-  localApi: '/assets',
-  remoteApi: 'http://localhost:3000/api',
+  localApiRoot: '/assets',
+  remoteApiRoot: 'http://localhost:3000/api',
   useMockApi: true,
 };
 

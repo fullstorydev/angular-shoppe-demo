@@ -13,7 +13,7 @@ import { Product } from '../models'
 export class ProductService {
 
   readonly imageUrl = 'https://fruitshoppe.firebaseapp.com/images'; // URL of product images folder
-  readonly apiRoute = '/products';  // API route to retrieve products
+  readonly productsEndpoint = '/products';  // API route to retrieve products
   readonly apiUrl: string;
 
   constructor(
@@ -21,8 +21,8 @@ export class ProductService {
     private http: HttpClient
   ) {
     // based on whether to use mocks or the API server, build the full API URL
-    this.apiUrl = environment.useMockApi ? `${environment.localApi}${this.apiRoute}` :
-      `${environment.remoteApi}${this.apiRoute}`;
+    this.apiUrl = environment.useMockApi ? `${environment.localApiRoot}${this.productsEndpoint}` :
+      `${environment.remoteApiRoot}${this.productsEndpoint}`;
   }
 
   /**
