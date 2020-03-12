@@ -2,11 +2,18 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+/**
+ * Define configuration options used by the app:
+ * production - whether or not this app is running in production
+ * localApi - mock files that contain data (i.e. emulate an API resource locally)
+ * remoteApi - the API base URL if hosting the backend demo (https://github.com/fullstorydev/api-shoppe-demo)
+ * useMockApi - true to use localApi, false to use the remoteApi
+ */
 export const environment = {
   production: false,
   localApi: '/assets',
   remoteApi: 'http://localhost:3000/api',
-  useMockApi: true, // set to false and run https://github.com/fullstorydev/api-shoppe-demo
+  useMockApi: true,
 };
 
 /*
