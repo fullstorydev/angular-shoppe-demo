@@ -1,0 +1,28 @@
+.mat-card {
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.mat-card-actions,
+.mat-card-content {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.product-header {
+  margin: 0px;
+}
+
+.product-list {
+  margin: 16px;
+}
+
+.product-image {
+  height: 120px;
+  width: 300px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  margin-bottom: 12px;
+}
