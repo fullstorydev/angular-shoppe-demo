@@ -1,8 +1,6 @@
 <mat-toolbar>
-  <a routerLink="/" class="toolbar-title">{{ title | uppercase }}</a>
+  <a routerLink="/products" class="toolbar-title">{{ title | uppercase }}</a>
   <span class="toolbar-spacer"></span>
-  <a mat-flat-button color="primary" routerLink="cart" aria-label="Shopping Cart">
-    <mat-icon class="toolbar-icon">shopping_cart</mat-icon>My Cart
-  </a>
+  <app-cart-button></app-cart-button>
 </mat-toolbar>
 <router-outlet></router-outlet>

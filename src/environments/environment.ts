@@ -13,7 +13,7 @@ export const environment = {
   production: false,
   localApiRoot: '/assets',
   remoteApiRoot: 'http://localhost:3000/api',
-  useMockApi: true,
+  useMockApi: false,
 };
 
 /*

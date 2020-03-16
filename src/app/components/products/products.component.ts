@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
-import { ProductService } from 'src/app/services';
+import { ProductService, CartService } from 'src/app/services';
 import { Product } from 'src/app/models';
 
 /**
@@ -31,6 +31,7 @@ export class ProductsComponent implements OnInit {
   products: Product[] = [];
 
   constructor(
+    private cartService: CartService,
     private mediaObserver: MediaObserver,
     private productService: ProductService,
   ) { }
@@ -38,6 +39,15 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
     this.observeBreakpoints();
     this.buildProductList();
+  }
+
+  /**
+   * Adds a product to the user's shopping cat.
+   * @param product the Product to be added
+   */
+  addToCart(product: Product) {
+    const { id } = product;
+    this.cartService.addItem(id);
   }
 
   /**
