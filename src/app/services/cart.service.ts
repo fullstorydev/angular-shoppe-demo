@@ -34,11 +34,9 @@ export class CartService {
     } else {
       // get the product from the catalog and add as an initial item
       this.productService.getProduct(productId).subscribe(product => {
-        const quantity = 1; // initial quantity of 1
-
         const item: Product = {
           ...product,
-          quantity
+          quantity: 1 // initial quantity of 1
         }
 
         // store the item and notify observers
