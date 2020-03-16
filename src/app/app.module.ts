@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -29,6 +30,7 @@ import { CartService, ProductService } from './services';
     BrowserAnimationsModule,
     FlexLayoutModule,
     HttpClientModule,
+    MatBadgeModule,
     MatButtonModule,
     MatCardModule,
     MatGridListModule,
