@@ -65,9 +65,9 @@ export class CartService {
     // find the item
     const index = this.items.findIndex(product => product.id === productId)
 
-    if (index) {
+    if (index >= 0) {
       // remove tthe item and notify observers
-      this.items = this.items.splice(index, 1);
+      this.items.splice(index, 1);
       this.subject.next(this.items);
     }
   }
