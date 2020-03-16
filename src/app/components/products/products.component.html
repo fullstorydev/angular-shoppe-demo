@@ -10,7 +10,7 @@
         <p>{{product.description}}</p>
       </mat-card-content>
       <mat-card-actions fxLayout="row" fxLayoutAlign="end center">
-        <button mat-stroked-button color="primary">Add to Cart</button>
+        <button mat-stroked-button color="primary" (click)="addToCart(product)">Add to Cart</button>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
