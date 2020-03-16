@@ -12,7 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CartComponent, CheckoutComponent, ProductsComponent, ThankYouComponent } from './components';
-import { ProductService } from './services/product.service';
+import { CartService, ProductService } from './services';
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ import { ProductService } from './services/product.service';
     MatToolbarModule,
   ],
   providers: [
+    CartService,
     ProductService,
   ],
   bootstrap: [AppComponent]
