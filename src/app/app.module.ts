@@ -11,13 +11,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CartComponent, CheckoutComponent, ProductsComponent, ThankYouComponent } from './components';
+import { CartComponent, CartButtonComponent, CheckoutComponent, ProductsComponent, ThankYouComponent } from './components';
 import { CartService, ProductService } from './services';
 
 @NgModule({
   declarations: [
     AppComponent,
     CartComponent,
+    CartButtonComponent,
     CheckoutComponent,
     ProductsComponent,
     ThankYouComponent,
