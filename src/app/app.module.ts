@@ -8,7 +8,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,7 +38,10 @@ import { CartService, ProductService } from './services';
     MatCardModule,
     MatGridListModule,
     MatIconModule,
+    MatSnackBarModule,
+    MatTableModule,
     MatToolbarModule,
+    MatTooltipModule,
   ],
   providers: [
     CartService,
