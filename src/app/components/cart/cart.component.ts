@@ -35,8 +35,8 @@ export class CartComponent implements OnInit {
    */
   private initCalculator(): void {
     // add an observer to the cart's items and compute the total cost
-    this.items$.subscribe(items => {
-      this.totalCost = items.reduce((acc: number, item: Product) => acc += item.price * item.quantity, 0);
+    this.items$.subscribe(() => {
+      this.totalCost = this.cartService.calculateTotalCost();
     });
   }
 
