@@ -47,6 +47,13 @@ export class CartService {
   }
 
   /**
+   * Calculates the total cost of all items in the cart (price x quantity).
+   */
+  calculateTotalCost(): number {
+    return this.items.reduce((acc: number, item: Product) => acc += item.price * item.quantity, 0)
+  }
+
+  /**
    * Gets the items in the cart as an Observable.
    * A ReplaySubject is used to re-emit the cart's items to newly instantiated
    * components.

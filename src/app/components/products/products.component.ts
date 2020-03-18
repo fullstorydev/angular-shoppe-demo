@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProductService, CartService } from 'src/app/services';
 import { Product } from 'src/app/models';
 
@@ -34,6 +35,7 @@ export class ProductsComponent implements OnInit {
     private cartService: CartService,
     private mediaObserver: MediaObserver,
     private productService: ProductService,
+    private snackbar: MatSnackBar,
   ) { }
 
   ngOnInit() {
@@ -42,12 +44,14 @@ export class ProductsComponent implements OnInit {
   }
 
   /**
-   * Adds a product to the user's shopping cat.
+   * Adds a product to the user's shopping cart.
+   * A snackbar will appear showing the product's title that was added.
    * @param product the Product to be added
    */
   addToCart(product: Product) {
     const { id } = product;
     this.cartService.addItem(id);
+    this.snackbar.open(`Added ${product.title} to your cart`, '', { duration: 2000 });
   }
 
   /**
