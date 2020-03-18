@@ -1,8 +1,8 @@
-<div fxFlex="20" fxFlex.lt-md="5"></div>
+<div fxFlex.gt-md="10" fxFlex.lt-md="5"></div>
 <!-- begin main content -->
-<div fxLayout.lt-md="column" fxFlex>
+<div fxLayout="row" fxLayout.lt-md="column" fxFlex>
   <!-- begin order form -->
-  <div fxLayout="column" fxFlex.gt-sm="70">
+  <div fxLayout="column" fxFlex.gt-sm="80">
     <mat-card class="mat-elevation-z8">
       <mat-card-title>Checkout</mat-card-title>
       <mat-card-content>
@@ -104,8 +104,8 @@
       <mat-card-title>Cart</mat-card-title>
       <mat-card-content fxLayout="row">
         <mat-list>
-          <mat-list-item *ngFor="let item of (items$ | async)">{{item.title}} <small
-              class="quantity-spacer">({{item.quantity}})</small>
+          <mat-list-item *ngFor="let item of (items$ | async)"><span matBadge="{{item.quantity}}"
+              matBadgePosition="above after" matBadgeOverlap="false">{{item.title}}</span>
           </mat-list-item>
           <mat-list-item><b>Total</b></mat-list-item>
         </mat-list>
@@ -121,4 +121,4 @@
   <!-- end cart details-->
 </div>
 <!-- end main content -->
-<div fxFlex="20" fxFlex.lt-md="5"></div>
+<div fxFlex.gt-md="10" fxFlex.lt-md="5"></div>
