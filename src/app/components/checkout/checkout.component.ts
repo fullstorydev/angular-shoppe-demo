@@ -37,6 +37,7 @@ export class CheckoutComponent implements OnInit {
    */
   checkout() {
     // do some processing ...
+    this.cartService.clear();
     this.router.navigate(['/thankyou']);
   }
 
