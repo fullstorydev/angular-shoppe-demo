@@ -14,6 +14,7 @@ export const environment = {
   localApiRoot: '/assets',
   remoteApiRoot: 'http://localhost:3000/api',
   useMockApi: false,
+  orgId: '',
 };
 
 /*

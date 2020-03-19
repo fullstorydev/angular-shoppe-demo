@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import * as FullStory from '@fullstory/browser';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'The Fruit Shoppe';
+
+  constructor() {
+    const { orgId } = environment;
+
+    // load the FullStory recording snippet if an orgId is set
+    if (orgId) {
+      FullStory.init({ orgId, debug: false });
+    }
+  }
 }
