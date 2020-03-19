@@ -2,10 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, find, map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { Product } from '../models'
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +14,16 @@ import { Product } from '../models'
 export class ProductService {
 
   readonly imageUrl = 'https://fruitshoppe.firebaseapp.com/images'; // URL of product images folder
-  readonly productsEndpoint = '/products';  // API route to retrieve products
   readonly apiUrl: string;
 
   constructor(
     private sanitizer: DomSanitizer,
-    private http: HttpClient
+    private http: HttpClient,
+    private snackBar: MatSnackBar,
   ) {
     // based on whether to use mocks or the API server, build the full API URL
-    this.apiUrl = environment.useMockApi ? `${environment.localApiRoot}${this.productsEndpoint}` :
-      `${environment.remoteApiRoot}${this.productsEndpoint}`;
+    this.apiUrl = environment.useMockApi ? `${environment.localApiRoot}/products.json` :
+      `${environment.remoteApiRoot}/products`;
   }
 
   /**
@@ -30,12 +31,21 @@ export class ProductService {
    * @param id the identifier of the product
    */
   getProduct(id: number): Observable<Product | null> {
-    const url = `${this.apiUrl}/${id}`;
+    // if using the mock API, just get all products and find the one with the given id
+    if (environment.useMockApi) {
+      return this.http.get<Product>(this.apiUrl).pipe(
+        map(product => this.setImageUrl(product)),
+        find(product => product.id === id),
+        catchError(this.handleError<Product>('getProduct', null))
+      );
+    } else {
+      const url = `${this.apiUrl}/${id}`;
 
-    return this.http.get<Product>(url).pipe(
-      map(product => this.setImageUrl(product)),
-      catchError(this.handleError<Product>('getProduct', null))
-    );
+      return this.http.get<Product>(url).pipe(
+        map(product => this.setImageUrl(product)),
+        catchError(this.handleError<Product>('getProduct', null))
+      );
+    }
   }
 
   /**
@@ -43,7 +53,7 @@ export class ProductService {
    * @param query An optional query string to search for products
    */
   getProducts(query?: string): Observable<Product[]> {
-    // searching for products will not work for mocks
+    // TODO (van) allow query parameter to filter mock products.json
     const url = query ? `${this.apiUrl}?q=${query}` : this.apiUrl;
 
     return this.http.get<Product[]>(url).pipe(
@@ -59,9 +69,10 @@ export class ProductService {
    */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: Error): Observable<T> => {
-      console.error(`${operation} failed: ${error.message}`);
+      const { message } = error;
 
-      // TODO (van) possibly open a snackbar to inform the user of error
+      console.error(`${operation} failed: ${message}`);
+      this.snackBar.open(`Failed to get product(s). ${message}`, 'OK');
 
       return of(result as T);
     };
