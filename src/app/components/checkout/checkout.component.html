@@ -1,1 +1,124 @@
-<p>checkout works!</p>
+<div fxFlex.gt-md="10" fxFlex.lt-md="5"></div>
+<!-- begin main content -->
+<div fxLayout="row" fxLayout.lt-md="column" fxFlex>
+  <!-- begin order form -->
+  <div fxLayout="column" fxFlex.gt-sm="80">
+    <mat-card class="mat-elevation-z8">
+      <mat-card-title>Checkout</mat-card-title>
+      <mat-card-content>
+        <h3>Billing Address</h3>
+
+        <div fxLayout.lt-md="column">
+          <mat-form-field appearance="fill">
+            <mat-label>Firstname</mat-label>
+            <input type="text" matInput>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Lastname</mat-label>
+            <input type="text" matInput>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout.lt-md="column">
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="column">
+          <mat-form-field appearance="fill">
+            <mat-label>Address</mat-label>
+            <input type="text" matInput>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Address 2</mat-label>
+            <input type="text" matInput>
+          </mat-form-field>
+        </div>
+        <div fxLayout.lt-md="column">
+          <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input type="text" matInput>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>State</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let state of shippableStates" value="{{state.abbreviation}}">{{state.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Zip</mat-label>
+            <input type="number" minlength="5" maxlength="5" matInput>
+          </mat-form-field>
+        </div>
+
+        <h3>Payment Details</h3>
+
+        <div fxLayout.lt-md="column">
+          <mat-form-field appearance="fill">
+            <mat-label>Credit Card</mat-label>
+            <mat-select>
+              <mat-option value="visa">Visa</mat-option>
+              <mat-option value="mastercard">Mastercard</mat-option>
+              <mat-option value="amex">American Express</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout.lt-md="column">
+          <mat-form-field appearance="fill">
+            <mat-label>Name on Card</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Credit Card Number</mat-label>
+            <input class="fs-exclude" type="text" matInput>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Expiration</mat-label>
+            <input class="fs-exclude" matInput>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>CVV</mat-label>
+            <input class="fs-exclude" type="text" minlength="3" maxlength="4" matInput>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="end start">
+          <button class="checkout-button" mat-flat-button color="primary" aria-label="Checkout" (click)="checkout()">
+            Checkout
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- end order form -->
+  <!-- begin cart details-->
+  <div fxLayout="column" fxFlex.gt-sm="30">
+    <mat-card class="mat-elevation-z8">
+      <mat-card-title>Cart</mat-card-title>
+      <mat-card-content fxLayout="row">
+        <mat-list>
+          <mat-list-item *ngFor="let item of (items$ | async)"><span matBadge="{{item.quantity}}"
+              matBadgePosition="above after" matBadgeOverlap="false">{{item.title}}</span>
+          </mat-list-item>
+          <mat-list-item><b>Total</b></mat-list-item>
+        </mat-list>
+        <mat-list>
+          <mat-list-item *ngFor="let item of (items$ | async)">{{item.price | currency}} {{item.unit}}</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item><b>{{getCartTotal() | currency}}</b></mat-list-item>
+        </mat-list>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+  <!-- end cart details-->
+</div>
+<!-- end main content -->
+<div fxFlex.gt-md="10" fxFlex.lt-md="5"></div>

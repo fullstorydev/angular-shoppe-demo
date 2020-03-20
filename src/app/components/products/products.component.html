@@ -1,6 +1,6 @@
 <mat-grid-list class="product-list" cols="{{numColumns}}" [gutterSize]="'1px'">
   <mat-grid-tile *ngFor=" let product of products">
-    <mat-card class="product-card">
+    <mat-card class="product-card" class="mat-elevation-z8">
       <div class="product-image" [style.backgroundImage]="'url(' + product.image +')'"></div>
       <mat-card-header class="product-header">
         <mat-card-title>{{product.title}}</mat-card-title>

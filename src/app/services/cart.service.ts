@@ -54,6 +54,14 @@ export class CartService {
   }
 
   /**
+   * Empties all items in the cart.
+   */
+  clear() {
+    this.items = [];
+    this.subject.next(this.items);
+  }
+
+  /**
    * Gets the items in the cart as an Observable.
    * A ReplaySubject is used to re-emit the cart's items to newly instantiated
    * components.
