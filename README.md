@@ -47,7 +47,7 @@ Check out a few sessions and explore the data to get a feel for how you'd use Fu
 
 - If you want to simulate different users, use a private or incognito window with the app.
 - Use the [FullStory Browser SDK](https://github.com/fullstorydev/fullstory-browser-sdk) to easily load FullStory into your app or site. See `app.component.ts`.
-- Add `fs-exclude` CSS classes to prevent recording of sensitive or personal information. See `checkout.component.html`.
+- Add `fs-exclude` CSS classes to prevent recording of sensitive or personal information. See `checkout.component.html` and [Private by Default](https://help.fullstory.com/hc/en-us/articles/360044349073-FullStory-Private-by-Default).
 
 ## (Optional) Use the product catalog microservice
 
