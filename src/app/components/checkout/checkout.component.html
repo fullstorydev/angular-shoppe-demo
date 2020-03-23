@@ -11,46 +11,46 @@
         <div fxLayout.lt-md="column">
           <mat-form-field appearance="fill">
             <mat-label>Firstname</mat-label>
-            <input type="text" matInput>
+            <input id="firstname" type="text" matInput>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Lastname</mat-label>
-            <input type="text" matInput>
+            <input id="lastname" type="text" matInput>
           </mat-form-field>
         </div>
 
         <div fxLayout.lt-md="column">
           <mat-form-field appearance="fill">
             <mat-label>Email</mat-label>
-            <input type="email" matInput>
+            <input id="email" type="email" matInput>
           </mat-form-field>
         </div>
 
         <div fxLayout="column">
           <mat-form-field appearance="fill">
             <mat-label>Address</mat-label>
-            <input type="text" matInput>
+            <input id="address" type="text" matInput class="fs-exclude">
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Address 2</mat-label>
-            <input type="text" matInput>
+            <input id="address2" type="text" matInput class="fs-exclude">
           </mat-form-field>
         </div>
         <div fxLayout.lt-md="column">
           <mat-form-field appearance="fill">
             <mat-label>City</mat-label>
-            <input type="text" matInput>
+            <input id="city" type="text" matInput>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>State</mat-label>
-            <mat-select>
+            <mat-select id="state">
               <mat-option *ngFor="let state of shippableStates" value="{{state.abbreviation}}">{{state.name}}
               </mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Zip</mat-label>
-            <input type="number" minlength="5" maxlength="5" matInput>
+            <input id="zipcode" type="number" minlength="5" maxlength="5" matInput>
           </mat-form-field>
         </div>
 
@@ -59,7 +59,7 @@
         <div fxLayout.lt-md="column">
           <mat-form-field appearance="fill">
             <mat-label>Credit Card</mat-label>
-            <mat-select>
+            <mat-select id="cc-type">
               <mat-option value="visa">Visa</mat-option>
               <mat-option value="mastercard">Mastercard</mat-option>
               <mat-option value="amex">American Express</mat-option>
@@ -70,22 +70,22 @@
         <div fxLayout.lt-md="column">
           <mat-form-field appearance="fill">
             <mat-label>Name on Card</mat-label>
-            <input matInput>
+            <input id="cc-name" matInput>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Credit Card Number</mat-label>
-            <input class="fs-exclude" type="text" matInput>
+            <input id="cc-num" class="fs-exclude" type="text" matInput>
           </mat-form-field>
         </div>
 
         <div>
           <mat-form-field appearance="fill">
             <mat-label>Expiration</mat-label>
-            <input class="fs-exclude" matInput>
+            <input id="cc-expires" class="fs-exclude" matInput>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>CVV</mat-label>
-            <input class="fs-exclude" type="text" minlength="3" maxlength="4" matInput>
+            <input id="cc-code" class="fs-exclude" type="text" minlength="3" maxlength="4" matInput>
           </mat-form-field>
         </div>
 

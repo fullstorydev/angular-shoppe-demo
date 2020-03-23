@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'The Fruit Shoppe';
+  title = 'Angular Shoppe';
 
   constructor() {
     const { orgId } = environment;
