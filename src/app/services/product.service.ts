@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable, of } from 'rxjs';
-import { catchError, find, map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { Product } from '../models'
@@ -33,9 +33,8 @@ export class ProductService {
   getProduct(id: number): Observable<Product | null> {
     // if using the mock API, just get all products and find the one with the given id
     if (environment.useMockApi) {
-      return this.http.get<Product>(this.apiUrl).pipe(
-        map(product => this.setImageUrl(product)),
-        find(product => product.id === id),
+      return this.getProducts().pipe(
+        map(products => products.find(product => product.id === id)), // force the Products[] into a Product
         catchError(this.handleError<Product>('getProduct', null))
       );
     } else {
