@@ -11,7 +11,7 @@ Install and start the web app with the following commands.
 ```bash
 cd angular-shoppe-demo
 npm install
-ng serve
+npm run start
 ```
 
 You should see a *Compiled successfully* message.  Then open [http://localhost:4200](http://localhost:4200) in your browser.
