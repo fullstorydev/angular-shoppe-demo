@@ -12,8 +12,8 @@ export class LoginComponent {
 
   user: User | null;
 
-  constructor(private afa: AngularFireAuth) {
-    afa.user.subscribe(user => {
+  constructor(private auth: AngularFireAuth) {
+    auth.user.subscribe(user => {
       this.user = user;
 
       if (user) {
@@ -27,14 +27,14 @@ export class LoginComponent {
    * Log in using Google OAuth.
    */
   login() {
-    this.afa.signInWithPopup(new Auth.GoogleAuthProvider());
+    this.auth.signInWithPopup(new Auth.GoogleAuthProvider());
   }
 
   /**
    * Logout the user.
    */
   logout() {
-    this.afa.signOut();
+    this.auth.signOut();
   }
 
 }
