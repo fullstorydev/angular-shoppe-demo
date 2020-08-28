@@ -100,6 +100,10 @@
           "options": {
             "browserTarget": "angular-shoppe-demo:build"
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  production: true,
+  orgId: '',
+  firebase: {
+    // optionally add your firebase config here
+  }
 };

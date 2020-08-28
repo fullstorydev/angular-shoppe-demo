@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "angular-shoppe-demo",
+      "public": "dist/angular-shoppe-demo",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

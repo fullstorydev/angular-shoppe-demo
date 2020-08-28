@@ -1,0 +1,9 @@
+<button *ngIf="!user" mat-menu-item (click)="login()">
+  <mat-icon>login</mat-icon>
+  <span>Login</span>
+</button>
+
+<button *ngIf="user" mat-menu-item (click)="logout()">
+  <mat-icon>logout</mat-icon>
+  <span>Logout</span>
+</button>

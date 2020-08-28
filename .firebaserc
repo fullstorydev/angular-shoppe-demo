@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ng-shoppe": {
+      "hosting": {
+        "angular-shoppe-demo": [
+          "ng-shoppe"
+        ]
+      }
+    }
+  }
+}

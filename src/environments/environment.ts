@@ -15,6 +15,9 @@ export const environment = {
   remoteApiRoot: 'http://localhost:3000/api',
   useMockApi: true,
   orgId: '',
+  firebase: {
+    // optionally add your firebase config here
+  }
 };
 
 /*
