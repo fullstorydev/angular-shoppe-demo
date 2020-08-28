@@ -16,7 +16,7 @@ export const environment = {
   useMockApi: true,
   orgId: '',
   firebase: {
-
+    // optionally add your firebase config here
   }
 };
 
