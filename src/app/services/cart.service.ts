@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../models';
 import { ReplaySubject } from 'rxjs';
 import { ProductService } from './product.service';
+import { DatalayerService } from './datalayer.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class CartService {
   private items: Product[] = [];
   private subject = new ReplaySubject<Product[]>();
 
-  constructor(private productService: ProductService) {
+  constructor(private datalayer: DatalayerService,
+    private productService: ProductService) {
 
   }
 
@@ -31,6 +33,9 @@ export class CartService {
       item.quantity += quantity;
 
       this.subject.next(this.items);
+
+      // update the data layer
+      this.datalayer.addToCart(item, this.items);
     } else {
       // get the product from the catalog and add as an initial item
       this.productService.getProduct(productId).subscribe(product => {
@@ -42,6 +47,9 @@ export class CartService {
         // store the item and notify observers
         this.items.push(item);
         this.subject.next(this.items);
+
+        // update the data layer
+        this.datalayer.addToCart(item, this.items);
       });
     }
   }
@@ -79,9 +87,14 @@ export class CartService {
     const index = this.items.findIndex(product => product.id === productId)
 
     if (index >= 0) {
-      // remove tthe item and notify observers
+      const item = this.items[index];
+
+      // remove the item and notify observers
       this.items.splice(index, 1);
       this.subject.next(this.items);
+
+      // update the data layer
+      this.datalayer.removeFromCart(item, this.items);
     }
   }
 }
