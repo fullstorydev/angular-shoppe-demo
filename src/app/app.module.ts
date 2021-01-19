@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule, ScreenTrackingService } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -41,6 +42,7 @@ import { LoginComponent } from './components/login/login.component';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
     AngularFireAuthModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -64,6 +66,7 @@ import { LoginComponent } from './components/login/login.component';
   providers: [
     CartService,
     ProductService,
+    ScreenTrackingService,
   ],
   bootstrap: [AppComponent]
 })
