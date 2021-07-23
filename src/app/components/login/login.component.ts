@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth as Auth, User } from 'firebase/app';
+import * as firebase from 'firebase';
 import * as FullStory from '@fullstory/browser';
 
 @Component({
@@ -10,7 +10,7 @@ import * as FullStory from '@fullstory/browser';
 })
 export class LoginComponent {
 
-  user: User | null;
+  user: firebase.default.User | null;
 
   constructor(private auth: AngularFireAuth) {
     auth.user.subscribe(user => {
@@ -27,7 +27,7 @@ export class LoginComponent {
    * Log in using Google OAuth.
    */
   login() {
-    this.auth.signInWithPopup(new Auth.GoogleAuthProvider());
+    this.auth.signInWithPopup(new firebase.default.auth.GoogleAuthProvider());
   }
 
   /**
