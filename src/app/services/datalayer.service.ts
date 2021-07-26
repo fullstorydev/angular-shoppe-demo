@@ -19,7 +19,7 @@ export class DatalayerService {
    */
   addToCart(product: Product, items: Product[]) {
     // Google
-    this.analytics.logEvent(firebase.analytics.EventName.ADD_TO_CART, product);
+    this.analytics.logEvent(firebase.default.analytics.EventName.ADD_TO_CART, product);
 
     // Tealium
     Object.assign(((window as any).utag.data), this.tealiumCart(product, items, 'cart_add'));
@@ -37,7 +37,7 @@ export class DatalayerService {
    */
   removeFromCart(product: Product, items: Product[]) {
     // Google
-    this.analytics.logEvent(firebase.analytics.EventName.REMOVE_FROM_CART, product);
+    this.analytics.logEvent(firebase.default.analytics.EventName.REMOVE_FROM_CART, product);
 
     // Tealium
     Object.assign(((window as any).utag.data), this.tealiumCart(product, items, 'cart_remove'));
@@ -54,7 +54,7 @@ export class DatalayerService {
    */
   checkout(items: Product[]) {
     // Google
-    this.analytics.logEvent(firebase.analytics.EventName.PURCHASE, { items });
+    this.analytics.logEvent(firebase.default.analytics.EventName.PURCHASE, { items });
 
     // Tealium
     Object.assign(((window as any).utag.data), this.tealiumCheckout(items));
