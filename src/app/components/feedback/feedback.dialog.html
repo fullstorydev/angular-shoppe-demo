@@ -9,7 +9,7 @@
     <mat-icon color="accent">sentiment_very_satisfied</mat-icon>
   </mat-radio-group>
   <p>How satisfied are you with our product selection?</p>
-  <mat-radio-group aria-label="How satisfied were you with our product selection?" fxLayout="row"
+  <mat-radio-group aria-label="How satisfied are you with our product selection?" fxLayout="row"
     fxLayoutAlign="space-evenly stretch">
     <mat-icon color="accent">sentiment_very_dissatisfied</mat-icon>
     <mat-radio-button [value]="i" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" (click)="data.osat = i">{{ i }}
