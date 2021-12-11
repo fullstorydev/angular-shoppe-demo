@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Provide Feedback</h1>
+<div mat-dialog-content fxLayout="column" fxLayoutAlign="center stretch">
+  <p>How likely are you to refer our Shoppe to a friend?</p>
+  <mat-radio-group aria-label="How likely are you to refer our Shoppe to a friend?" fxLayout="row"
+    fxLayoutAlign="space-evenly stretch">
+    <mat-icon color="accent">sentiment_very_dissatisfied</mat-icon>
+    <mat-radio-button [value]="i" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" (click)="data.nps = i">{{ i }}
+    </mat-radio-button>
+    <mat-icon color="accent">sentiment_very_satisfied</mat-icon>
+  </mat-radio-group>
+  <p>How satisfied were you with our product selection?</p>
+  <mat-radio-group aria-label="How satisfied were you with our product selection?" fxLayout="row"
+    fxLayoutAlign="space-evenly stretch">
+    <mat-icon color="accent">sentiment_very_dissatisfied</mat-icon>
+    <mat-radio-button [value]="i" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" (click)="data.osat = i">{{ i }}
+    </mat-radio-button>
+    <mat-icon color="accent">sentiment_very_satisfied</mat-icon>
+  </mat-radio-group>
+  <p>Please provide any additional comments below.</p>
+  <textarea matInput [(ngModel)]="data.comments" rows="4"></textarea>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button (click)="close()">Close</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Submit</button>
+</div>
