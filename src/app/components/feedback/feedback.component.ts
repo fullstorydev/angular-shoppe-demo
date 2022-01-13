@@ -28,14 +28,14 @@ export class FeedbackComponent {
             }
             const { nps, osat, comments } = data
 
-            FullStory.event("feedback_submitted", {
-                uuid: window.localStorage.getItem("_fs_uid"),
-                nps,
-                osat,
-                comments,
+            const payload = {
+                _fs_uid: window.localStorage.getItem("_fs_uid"),
                 startOfPlayback: FullStory.getCurrentSessionURL(),
                 playbackAtThisMomentInTime: FullStory.getCurrentSessionURL(true),
-            })
+                ...data,
+            }
+
+            FullStory.event("feedback_submitted", payload)
             // broadcasts a CustomEvent
             // see https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
             window.dispatchEvent(new CustomEvent("feedback_submitted", { detail: { nps, osat, comments } }))
