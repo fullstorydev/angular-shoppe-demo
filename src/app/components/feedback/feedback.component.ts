@@ -11,12 +11,6 @@ const customConfig: Config = {
     length: 2,
 }
 
-const randomName: string = uniqueNamesGenerator({
-    dictionaries: [adjectives, colors, animals],
-})
-
-const shortName: string = uniqueNamesGenerator(customConfig) // big-donkey
-
 export interface FeedbackData {
     nps: number // net promoter score
     osat: number // overall satisfaction
