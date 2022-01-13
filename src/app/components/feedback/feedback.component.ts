@@ -46,8 +46,8 @@ export class FeedbackComponent {
             const { nps, osat, comments } = data
 
             const payload = {
-                _fs_uid: window.localStorage.getItem("_fs_uid"),
-                startOfPlayback: FullStory.getCurrentSessionURL(),
+                fs_uid: window.localStorage.getItem("_fs_uid"),
+                _startOfPlayback: FullStory.getCurrentSessionURL(),
                 playbackAtThisMomentInTime: FullStory.getCurrentSessionURL(true),
                 ...data,
             }
