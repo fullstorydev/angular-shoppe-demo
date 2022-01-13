@@ -20,12 +20,6 @@ export class FeedbackComponent {
     trackFeedbackSubmitted(event: CustomEvent) {
         const data = event.detail
         // const { nps, osat, comments } = data
-
-        // if (!data) {
-        //     FullStory.log("warn", "feedback_submitted data not found")
-        //     return
-        // }
-
         // const payload = {
         //     uuid: window.localStorage.getItem("_fs_uid"),
         //     nps,
