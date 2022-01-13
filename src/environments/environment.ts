@@ -10,15 +10,15 @@
  * useMockApi - true to use localApi, false to use the remoteApi
  */
 export const environment = {
-  production: false,
-  localApiRoot: '/assets',
-  remoteApiRoot: 'http://localhost:3000/api',
-  useMockApi: true,
-  orgId: '',
-  firebase: {
-    // optionally add your firebase config here
-  }
-};
+    production: false,
+    localApiRoot: "/assets",
+    remoteApiRoot: "http://localhost:3000/api",
+    useMockApi: true,
+    orgId: "17Q0KY",
+    firebase: {
+        // optionally add your firebase config here
+    },
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
