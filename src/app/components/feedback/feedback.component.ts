@@ -51,7 +51,11 @@ export class FeedbackComponent {
                 playbackAtThisMomentInTime: FullStory.getCurrentSessionURL(true),
                 ...data,
             }
-
+            FullStory.setUserVars({
+                displayName: "Brown Cow 🐄 ",
+                email: "thecowsarein@themeadow.com",
+                totalSpent_real: 14.5, // how much has he spent on in-app purchases so far?
+            })
             FullStory.event("feedback_submitted", payload)
             // broadcasts a CustomEvent
             // see https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
