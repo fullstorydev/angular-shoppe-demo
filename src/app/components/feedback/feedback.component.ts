@@ -1,4 +1,4 @@
-import { Component } from "@angular/core"
+import { HostListener, Component } from "@angular/core"
 import { MatDialog, MatDialogRef } from "@angular/material/dialog"
 import * as FullStory from "@fullstory/browser"
 
@@ -15,6 +15,29 @@ export interface FeedbackData {
 })
 export class FeedbackComponent {
     constructor(public dialog: MatDialog) {}
+
+    @HostListener("window:feedback_submitted", ["$event"])
+    trackFeedbackSubmitted(event: CustomEvent) {
+        const data = event.detail
+        // const { nps, osat, comments } = data
+
+        // if (!data) {
+        //     FullStory.log("warn", "feedback_submitted data not found")
+        //     return
+        // }
+
+        // const payload = {
+        //     uuid: window.localStorage.getItem("_fs_uid"),
+        //     nps,
+        //     osat,
+        //     comments,
+        //     startOfPlayback: FullStory.getCurrentSessionURL(),
+        //     playbackAtThisMomentInTime: FullStory.getCurrentSessionURL(true),
+        // }
+
+        console.log("trackSurveyFeedback", data)
+        // FullStory.event("feedback_submitted", payload)
+    }
 
     openDialog(): void {
         const dialogRef = this.dialog.open(FeedbackDialog, {
