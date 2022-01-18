@@ -55,6 +55,7 @@ export class FeedbackComponent {
         })
 
         dialogRef.afterClosed().subscribe((data) => {
+            // if no data bail and log
             if (!data) {
                 FullStory.log("warn", "feedback_submitted data not found")
                 return
@@ -88,6 +89,7 @@ export class FeedbackComponent {
                 nps_int: nps,
                 osat_int: osat,
                 comments_str: comments,
+                rageclickedSurvery_bool: false,
             }
 
             // Events("feedback_submitted") are trackable actions
